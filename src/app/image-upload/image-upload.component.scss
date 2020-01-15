@@ -1,12 +1,16 @@
 .camera-icon {
-    font-size:7.2rem;
-    color: #5f6caf;
-    border-radius: 50%;
+  font-size: 7.2rem;
+  color: #5f6caf;
+  border-radius: 50%;
 }
 
-#image-upload {
-    display: flex;
-    height: 95vh;
-    justify-content: center;
-    align-items: center;
+.image-upload {
+  display: flex;
+  height: 95vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-upload > input {
+  display: none;
 }
