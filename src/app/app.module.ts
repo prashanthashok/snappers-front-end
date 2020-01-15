@@ -4,10 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppBootstrapModule } from './app-bootstrap.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    ImageUploadComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
