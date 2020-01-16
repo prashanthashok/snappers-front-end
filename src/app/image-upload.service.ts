@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class ImageUploadService {
     constructor(private http: HttpClient) {}
 
-    uploadImage(image: ImageUploadRequest): Observable<any> {
+    uploadImage(imageRequest: ImageUploadRequest): Observable<any> {
         const httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
@@ -31,6 +31,13 @@ export class ImageUploadService {
                 _repeat: 5,
             },
         };
+
+        const formData = new FormData();
+
+        formData.append('image', imageRequest.image.file);
+
+        console.log('form data');
+        console.log(formData);
         return this.http.post<any>(UPLOADIMAGEAPI, payload, httpOptions);
     }
 }
