@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AlertModule } from 'ngx-bootstrap';
+
 
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
-    AlertModule.forRoot()
+    CommonModule
+    
   ],
-  exports: [AlertModule]
+  exports: []
 })
 export class AppBootstrapModule { }

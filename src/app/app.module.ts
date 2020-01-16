@@ -8,21 +8,24 @@ import { HeaderComponent } from './header/header.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { LoginComponent } from './login/login.component';
 import { LoaderComponent } from './loader/loader.component';
+import { ImageUploadService } from './image-upload.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    ImageUploadComponent,
-    LoginComponent,
-    LoaderComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    AppBootstrapModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        ImageUploadComponent,
+        LoginComponent,
+        LoaderComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        AppBootstrapModule,
+        HttpClientModule,
+    ],
+    providers: [ImageUploadService],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,6 +1,11 @@
 <div class="container" class="image-upload">
-  <label for="image-input">
-    <i class="fas fa-camera-retro camera-icon"></i
-  ></label>
-  <input id="image-input" type="file" accept="image/*" />
+    <label for="image-input">
+        <i class="fas fa-camera-retro camera-icon"></i
+    ></label>
+    <input
+        id="image-input"
+        type="file"
+        accept="image/*"
+        (input)="uploadFile($event)"
+    />
 </div>
