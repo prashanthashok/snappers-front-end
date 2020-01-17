@@ -8,8 +8,10 @@ import { HeaderComponent } from './header/header.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { LoginComponent } from './login/login.component';
 import { LoaderComponent } from './loader/loader.component';
-import { ImageUploadService } from './image-upload.service';
-import { HttpClientModule } from '@angular/common/http';
+import { ImageUploadService } from './services/image-upload.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderService } from './services/loader.service';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
 
 @NgModule({
     declarations: [
@@ -25,7 +27,15 @@ import { HttpClientModule } from '@angular/common/http';
         AppBootstrapModule,
         HttpClientModule,
     ],
-    providers: [ImageUploadService],
+    providers: [
+        ImageUploadService,
+        LoaderService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: LoaderInterceptor,
+            multi: true,
+        },
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

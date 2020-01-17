@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ImageUploadService } from '../image-upload.service';
+import { ImageUploadService } from '../services/image-upload.service';
 import { ImageUploadRequest } from '../models/Requests/ImageUploadRequest';
 import { Image } from '../models/Entities/image';
 
@@ -17,6 +17,10 @@ export class ImageUploadComponent implements OnInit {
 
     selectedFile: ImageSnippet;
     ngOnInit() {}
+
+    callApi() {
+        this.imageUploadService.callApi();
+    }
 
     uploadFile($event) {
         let file = $event.target.files[0];

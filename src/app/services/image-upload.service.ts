@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { ImageUploadResponse } from './models/responses/ImageUploadResponse';
-import { ImageUploadRequest } from './models/Requests/ImageUploadRequest';
-import { UPLOADIMAGEAPI } from './constants';
+import { ImageUploadResponse } from '../models/responses/ImageUploadResponse';
+import { ImageUploadRequest } from '../models/Requests/ImageUploadRequest';
+import { UPLOADIMAGEAPI } from '../constants';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -39,5 +39,11 @@ export class ImageUploadService {
         console.log('form data');
         console.log(formData);
         return this.http.post<any>(UPLOADIMAGEAPI, payload, httpOptions);
+    }
+
+    callApi() {
+        this.http.get('https://reqres.in/api/users?page=2').subscribe(data => {
+            console.log(data);
+        });
     }
 }
