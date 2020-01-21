@@ -12,7 +12,8 @@ export class CribsService {
 
 
   getAllCribs() {
-    return this.http.get('https://raw.githubusercontent.com/hnptl5/ng2-cribs/master/src/data/cribs.json')
+    
+    return this.http.get('../assets/response.json')
     .map(res => res.json());
   }
 
