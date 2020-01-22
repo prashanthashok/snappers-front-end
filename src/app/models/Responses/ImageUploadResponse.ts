@@ -1,6 +1,8 @@
+import { Image } from '../Entities/Image';
+
 export class ImageUploadResponse {
     result: {
-        images: [];
+        images: Image[];
     };
     status: {
         code: string;
