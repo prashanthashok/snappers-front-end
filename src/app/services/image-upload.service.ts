@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { ImageUploadResponse } from '../models/responses/ImageUploadResponse';
+import { ImageUploadResponse } from '../models/Responses/ImageUploadResponse';
 import { ImageUploadRequest } from '../models/Requests/ImageUploadRequest';
 import { UPLOADIMAGEAPI } from '../constants';
 import { Observable } from 'rxjs';

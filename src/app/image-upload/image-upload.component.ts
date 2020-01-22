@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageUploadService } from '../services/image-upload.service';
 import { ImageUploadRequest } from '../models/Requests/ImageUploadRequest';
-import { Image } from '../models/Entities/image';
+import { Image } from '../models/Entities/Image';
 
 class ImageSnippet {
     constructor(public src: string, public file: File) {}
