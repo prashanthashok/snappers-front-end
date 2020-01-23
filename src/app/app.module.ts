@@ -17,6 +17,7 @@ import { CribListingComponent } from './crib-listing/crib-listing.component';
 import { CribCardComponent } from './crib-card/crib-card.component';
 import { CribsService } from './services/cribs.service';
 import { HttpModule } from '@angular/http';
+import { HouseDetailComponent } from './house-details/house-details.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { HttpModule } from '@angular/http';
         LoaderComponent,
         CribListingComponent,
         CribCardComponent,
+        HouseDetailComponent,
     ],
     imports: [
         BrowserModule,

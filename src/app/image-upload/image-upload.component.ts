@@ -45,7 +45,7 @@ export class ImageUploadComponent implements OnInit {
         });
 
         reader.readAsArrayBuffer(file);
-        this.router.navigate(['/criblisting']);
+        this.router.navigate(['/housedetails']);
         // console.log($event);
         // console.log(file);
         // let imageRequest = new ImageUploadRequest();
