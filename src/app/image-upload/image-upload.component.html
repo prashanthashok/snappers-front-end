@@ -6,7 +6,7 @@
         id="image-input"
         type="file"
         accept="image/*"
-        (input)="uploadFile($event)"
+        (change)="uploadFile($event)"
     />
 </div>
 
@@ -14,3 +14,10 @@
 <div>
     <button (click)="callApi()">Click</button>
 </div>
+
+<input
+    type="file"
+    (change)="fileChangeEvent($event)"
+    placeholder="Upload file..."
+/>
+<button type="button" (click)="upload()">Upload</button>
