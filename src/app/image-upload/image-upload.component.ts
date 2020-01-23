@@ -40,19 +40,25 @@ export class ImageUploadComponent implements OnInit {
         image.file = file;
         imageRequest.image = image;
 
-        reader.addEventListener('load', (event: any) => {
-            this.selectedFile = new ImageSnippet(event.target.result, file);
-            console.log('selected file');
-            console.log(this.selectedFile);
-            this.imageUploadService.uploadImage(imageRequest).subscribe(
-                res => {
-                    console.log(res);
-                },
-                err => {}
-            );
+        let uploadResponse$ = this.imageUploadService.upload2(image.file);
+
+        uploadResponse$.subscribe(res => {
+            console.log(res);
         });
 
-        reader.readAsArrayBuffer(file);
+        // reader.addEventListener('load', (event: any) => {
+        //     this.selectedFile = new ImageSnippet(event.target.result, file);
+        //     console.log('selected file');
+        //     console.log(this.selectedFile);
+        //     this.imageUploadService.uploadImage(imageRequest).subscribe(
+        //         res => {
+        //             console.log(res);
+        //         },
+        //         err => {}
+        //     );
+        // });
+
+        // reader.readAsArrayBuffer(file);
     }
 
     filesToUpload: Array<File>;

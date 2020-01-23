@@ -57,4 +57,14 @@ export class ImageUploadService {
             console.log(data);
         });
     }
+
+    upload2(image: File) {
+        console.log(image);
+        let formData = new FormData();
+        // formData.append('image', image);
+        // formData.append('name', 'Prashanth');
+        // console.log(formData);
+        formData.append('image', image, image.name);
+        return this.http.post(UPLOADIMAGEAPI, formData);
+    }
 }
