@@ -22,3 +22,8 @@ https://nodejs.org/en/knowledge/HTTP/servers/how-to-handle-multipart-form-data/
 
 https://docs.microsoft.com/en-us/azure/storage/blobs/storage-upload-process-images?tabs=dotnet
 
+
+Blob
+azsnappersblob
+key=TEq9kqTg1RhpnDpZppJ0CxBsOXbSzEOofi6r5qRgYojQu9WOsQkTle7floM2qZKOYwNP43gpkKVfI7NGt1V2yg==
+connectionString=DefaultEndpointsProtocol=https;AccountName=azsnappersblob;AccountKey=TEq9kqTg1RhpnDpZppJ0CxBsOXbSzEOofi6r5qRgYojQu9WOsQkTle7floM2qZKOYwNP43gpkKVfI7NGt1V2yg==;EndpointSuffix=core.windows.net
