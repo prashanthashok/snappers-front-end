@@ -17,3 +17,8 @@ This feature is available only in secure contexts (HTTPS), in some or all suppor
 ### formidable (to process form data esp. files)
 
 https://nodejs.org/en/knowledge/HTTP/servers/how-to-handle-multipart-form-data/
+
+### C# server
+
+https://docs.microsoft.com/en-us/azure/storage/blobs/storage-upload-process-images?tabs=dotnet
+

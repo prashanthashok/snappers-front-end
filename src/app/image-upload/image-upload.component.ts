@@ -2,12 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ImageUploadService } from '../services/image-upload.service';
 import { ImageUploadRequest } from '../models/Requests/ImageUploadRequest';
 import { Image } from '../models/Entities/Image';
-
-import {
-    BlobServiceClient,
-    StorageSharedKeyCredential,
-    BlobDownloadResponseModel,
-} from '@azure/storage-blob';
 import { XhrFactory } from '@angular/common/http';
 
 class ImageSnippet {

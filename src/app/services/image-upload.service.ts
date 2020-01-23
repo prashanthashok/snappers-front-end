@@ -6,7 +6,7 @@ import { ImageUploadRequest } from '../models/Requests/ImageUploadRequest';
 import { UPLOADIMAGEAPI } from '../constants';
 import { Observable } from 'rxjs';
 
-import uploadToBlob from './uploadToBlob';
+
 
 @Injectable({
     providedIn: 'root',
