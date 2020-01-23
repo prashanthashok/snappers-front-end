@@ -869,8 +869,7 @@ h3 {
 /* line 17, ../../Arafath/CL/CL October/217. Real Estate/HTML/scss/_header.scss */
 .header-area .main-header-area {
   padding: 18px 0;
-  background: #fff;
-  background: transparent;
+  background: #001D38;
 }
 
 /* line 21, ../../Arafath/CL/CL October/217. Real Estate/HTML/scss/_header.scss */
@@ -2673,7 +2672,7 @@ h3 {
 /* line 119, ../../Arafath/CL/CL October/217. Real Estate/HTML/scss/_property_details.scss */
 .property_details_banner {
   background: #10273C;
-  padding: 100px 0 210px 0;
+  padding: 130px 0 210px 0;
 }
 
 @media (max-width: 767px) {
