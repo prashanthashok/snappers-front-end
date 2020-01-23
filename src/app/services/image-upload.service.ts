@@ -6,6 +6,8 @@ import { ImageUploadRequest } from '../models/Requests/ImageUploadRequest';
 import { UPLOADIMAGEAPI } from '../constants';
 import { Observable } from 'rxjs';
 
+import uploadToBlob from './uploadToBlob';
+
 @Injectable({
     providedIn: 'root',
 })
@@ -38,7 +40,16 @@ export class ImageUploadService {
 
         console.log('form data');
         console.log(formData);
-        return this.http.post<any>(UPLOADIMAGEAPI, payload, httpOptions);
+
+        //uploadToBlob(formData);
+
+        return this.http.post<any>(UPLOADIMAGEAPI, formData, httpOptions);
+
+        // return this.http.post<any>(
+        //     'http://localhost:5000/api/images/upload',
+        //     formData,
+        //     httpOptions
+        // );
     }
 
     callApi() {

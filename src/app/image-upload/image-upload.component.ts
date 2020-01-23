@@ -3,6 +3,13 @@ import { ImageUploadService } from '../services/image-upload.service';
 import { ImageUploadRequest } from '../models/Requests/ImageUploadRequest';
 import { Image } from '../models/Entities/Image';
 
+import {
+    BlobServiceClient,
+    StorageSharedKeyCredential,
+    BlobDownloadResponseModel,
+} from '@azure/storage-blob';
+import { XhrFactory } from '@angular/common/http';
+
 class ImageSnippet {
     constructor(public src: string, public file: File) {}
 }
@@ -13,7 +20,9 @@ class ImageSnippet {
     styleUrls: ['./image-upload.component.scss'],
 })
 export class ImageUploadComponent implements OnInit {
-    constructor(private imageUploadService: ImageUploadService) {}
+    constructor(private imageUploadService: ImageUploadService) {
+        this.filesToUpload = [];
+    }
 
     selectedFile: ImageSnippet;
     ngOnInit() {}
@@ -44,13 +53,48 @@ export class ImageUploadComponent implements OnInit {
         });
 
         reader.readAsArrayBuffer(file);
-        // console.log($event);
-        // console.log(file);
-        // let imageRequest = new ImageUploadRequest();
-        // let image = new Image();
-        // image.file = file;
-        // imageRequest.image = image;
-        // let imageResponse = this.imageUploadService.uploadImage(imageRequest);
-        // imageResponse.subscribe(x => console.log(x));
+    }
+
+    filesToUpload: Array<File>;
+
+    fileChangeEvent(fileInput: any) {
+        this.filesToUpload = <Array<File>>fileInput.target.files;
+        this.upload();
+    }
+
+    makeFileRequest(url: string, params: Array<string>, files: Array<File>) {
+        return new Promise((resolve, reject) => {
+            var formData: any = new FormData();
+            var xhr = new XMLHttpRequest();
+            for (var i = 0; i < files.length; i++) {
+                formData.append('image', files[i], files[i].name);
+            }
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        resolve(JSON.parse(xhr.response));
+                    } else {
+                        reject(xhr.response);
+                    }
+                }
+            };
+            xhr.open('POST', url, true);
+            xhr.send(formData);
+        });
+    }
+
+    upload() {
+        this.makeFileRequest(
+            'http://localhost:5000/api/images/upload',
+            [],
+            this.filesToUpload
+        ).then(
+            result => {
+                console.log(result);
+            },
+            error => {
+                console.error(error);
+            }
+        );
     }
 }
