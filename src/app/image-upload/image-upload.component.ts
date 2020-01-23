@@ -34,7 +34,7 @@ export class ImageUploadComponent implements OnInit {
         image.file = file;
         imageRequest.image = image;
 
-        let uploadResponse$ = this.imageUploadService.upload2(image.file);
+        let uploadResponse$ = this.imageUploadService.uploadToBlob(image.file);
 
         uploadResponse$.subscribe(res => {
             console.log(res);

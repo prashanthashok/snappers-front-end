@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
 import { ImageUploadResponse } from '../models/Responses/ImageUploadResponse';
 import { ImageUploadRequest } from '../models/Requests/ImageUploadRequest';
 import { UPLOADIMAGEAPI } from '../constants';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 
 
@@ -14,7 +15,7 @@ import { Observable } from 'rxjs';
 export class ImageUploadService {
     constructor(private http: HttpClient) {}
 
-    uploadImage(imageRequest: ImageUploadRequest): Observable<any> {
+    uploadImage(imageRequest: ImageUploadRequest) {
         const httpOptions = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
@@ -43,8 +44,10 @@ export class ImageUploadService {
 
         //uploadToBlob(formData);
 
-        return this.http.post<any>(UPLOADIMAGEAPI, formData, httpOptions);
+        return this.http.post(UPLOADIMAGEAPI, formData, httpOptions)
+        
 
+        
         // return this.http.post<any>(
         //     'http://localhost:5000/api/images/upload',
         //     formData,
@@ -52,18 +55,18 @@ export class ImageUploadService {
         // );
     }
 
+    
+
     callApi() {
         this.http.get('https://reqres.in/api/users?page=2').subscribe(data => {
             console.log(data);
         });
     }
 
-    upload2(image: File) {
+    uploadToBlob(image: File) {
         console.log(image);
         let formData = new FormData();
-        // formData.append('image', image);
-        // formData.append('name', 'Prashanth');
-        // console.log(formData);
+        
         formData.append('image', image, image.name);
         return this.http.post(UPLOADIMAGEAPI, formData);
     }
