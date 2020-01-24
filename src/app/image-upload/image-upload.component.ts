@@ -3,6 +3,7 @@ import { ImageUploadService } from '../services/image-upload.service';
 import { ImageUploadRequest } from '../models/Requests/ImageUploadRequest';
 import { Image } from '../models/Entities/image';
 import {Router} from "@angular/router"
+import { CribsService } from '../services/cribs.service';
 
 class ImageSnippet {
     constructor(public src: string, public file: File) {}
@@ -14,7 +15,7 @@ class ImageSnippet {
     styleUrls: ['./image-upload.component.scss'],
 })
 export class ImageUploadComponent implements OnInit {
-    constructor(private imageUploadService: ImageUploadService,private router: Router) {}
+    constructor(private imageUploadService: ImageUploadService,private cribService: CribsService,private router: Router) {}
 
     selectedFile: ImageSnippet;
     ngOnInit() {}
@@ -45,7 +46,16 @@ export class ImageUploadComponent implements OnInit {
         });
 
         reader.readAsArrayBuffer(file);
-        this.router.navigate(['/housedetails']);
+
+        this.cribService.getAllCribs()
+       .subscribe((data) => {
+           this.cribService.cribData = data;
+           this.router.navigate(['/housedetails']);
+       }
+        );
+       
+
+      
         // console.log($event);
         // console.log(file);
         // let imageRequest = new ImageUploadRequest();

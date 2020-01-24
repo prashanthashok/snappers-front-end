@@ -3,13 +3,14 @@
     "houseList": [
         {
             "Zipcode": "07698",
-            "Address": "23 Cottage way , Fanwood , NJ 07023",
-            "Area": "2000Sqft",
+            "Address": "23 Cottage way, Fanwood, NJ 07023",
+            "Area": "2000 Sqft",
             "contrustiedIn": "1940-01-22T22:02:45.3044963+00:00",
             "AgeInYears": 10,
             "NumberOfBedrooms": 4,
             "NumberOfBathooms": 3,
             "Cost": 500000.0,
+            "ImageUrl": "https://azsnappersblob.blob.core.windows.net/images/07722-01.01.PNG",
             "quoteDetails": {
                 "HouseCost": 2500000.0,
                 "IsPreapproved": true,
@@ -17,7 +18,7 @@
             }
         }
     ],
-    "accotDetails": {
+    "accountDetails": {
         "office": "474",
         "AccountNumber": "345654",
         "FA": "478",

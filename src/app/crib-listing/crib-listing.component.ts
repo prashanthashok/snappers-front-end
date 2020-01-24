@@ -28,10 +28,5 @@ export class CribListingComponent implements OnInit {
     this.cribService.getAllCribs()
       .subscribe(data => this.cribs = data,
       error => this.error = error.statusText);
-
-      this.cribService.newCribData
-      .subscribe(newCrib =>{
-        this.cribs.push(newCrib);
-      });
   }
 }

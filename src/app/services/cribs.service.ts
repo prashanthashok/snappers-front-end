@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class CribsService {
 
-  public newCribData = new Subject<any>();
+  cribData: any;
 
 
   constructor(private http: Http) { }
@@ -13,12 +13,10 @@ export class CribsService {
 
   getAllCribs() {
     
-    return this.http.get('../assets/response.json')
+    return this.http.get('../assets/res.json')
     .map(res => res.json());
   }
 
-  addCrib(data){
-    data.image = 'default-crib';
-    this.newCribData.next(data);
-  }
+
+ 
 }
