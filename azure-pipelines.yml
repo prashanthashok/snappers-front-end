@@ -17,6 +17,19 @@ steps:
 
 - script: |
     npm install -g @angular/cli
+  displayName: 'npm install angular'
+
+- script: |
     npm install
+  displayName: 'npm install'
+
+- script: |
     ng build --prod
-  displayName: 'npm install and build'
+  displayName: 'npm build'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'dist/snappers-front-end'
+    ArtifactName: 'web-app'
+    publishLocation: Container
+  displayName: 'Publish Artifacts'
