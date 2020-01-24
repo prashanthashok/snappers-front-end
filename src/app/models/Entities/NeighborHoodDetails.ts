@@ -1,4 +1,4 @@
 export class NeighborhoodDetails {
-    "crimeIndex": number;
-    "nearestSchool": number;
+    crimeIndex: number;
+    nearestSchool: number;
 }
