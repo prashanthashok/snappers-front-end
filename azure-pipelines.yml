@@ -29,7 +29,7 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: 'dist/az-snappers-ux'
+    PathtoPublish: 'dist/snappers-front-end'
     ArtifactName: 'web-app'
     publishLocation: Container
   displayName: 'Publish Artifacts'
