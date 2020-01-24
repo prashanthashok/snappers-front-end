@@ -12,6 +12,7 @@ import { ImageUploadService } from './services/image-upload.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderService } from './services/loader.service';
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
     declarations: [
@@ -20,6 +21,7 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
         ImageUploadComponent,
         LoginComponent,
         LoaderComponent,
+        NotFoundComponent,
     ],
     imports: [
         BrowserModule,

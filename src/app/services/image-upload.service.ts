@@ -6,6 +6,7 @@ import { ImageUploadRequest } from '../models/Requests/ImageUploadRequest';
 import { API_UPLOADTOBLOB } from '../constants';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { UploadToBlobResponse } from '../models/Responses/UploadToBlobResponse';
 
 
 
@@ -20,7 +21,7 @@ export class ImageUploadService {
         let formData = new FormData();
         
         formData.append('image', image, image.name);
-        return this.http.post(API_UPLOADTOBLOB, formData);
+        return this.http.post<UploadToBlobResponse>(API_UPLOADTOBLOB, formData);
     }
 
     callApi() {
@@ -28,6 +29,26 @@ export class ImageUploadService {
             console.log(data);
         });
     }
+
+    searchProperty(imageUri: string){
+
+    let payload = {
+                token: 'PBmQY-kSfHmtXExKjiqnDQ',
+                data: {
+                    result: {
+                        image: File,
+                    },
+                    status: {
+                        message: 'success',
+                    },
+                    _repeat: 5,
+                },
+            };
+
+            return this.http.get('../assets/res-failure.json');
+        }
+
+        
 
     // uploadImage(imageRequest: ImageUploadRequest) {
     //     const httpOptions = {
